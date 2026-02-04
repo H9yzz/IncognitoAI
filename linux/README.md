@@ -6,8 +6,8 @@ A complete Linux setup for IncognitoAI with both Streamlit and Flask-based Cyber
 
 - `setup.sh` - Automated Linux setup script
 - `start.sh` - Launch Streamlit version
-- `start_cyberpunk.sh` - Launch Flask Cyberpunk version
-- `app_cyberpunk.py` - Flask-based cyberpunk AI interface
+- `bot.sh` - Launch Flask Cyberpunk version
+- `bot.py` - Flask-based cyberpunk AI interface
 - `templates/` - HTML templates for Flask app
 - `static/` - CSS and JavaScript for Flask app
 
@@ -55,7 +55,7 @@ chmod +x start.sh
 
 ### Flask Cyberpunk Version (New!)
 ```bash
-chmod +x start_cyberpunk.sh
+chmod +x bot.sh
 ./start_cyberpunk.sh
 ```
 - Opens at `http://localhost:5000`
@@ -145,7 +145,7 @@ sudo apt-get install python3 python3-pip
 
 ### Permission Denied
 ```bash
-chmod +x setup.sh start.sh start_cyberpunk.sh
+chmod +x setup.sh start.sh bot.sh
 ```
 
 ### Port Already in Use
@@ -156,7 +156,7 @@ streamlit run ../app.py --server.port 8502
 ```
 
 **Flask (5000):**
-Edit `app_cyberpunk.py` and change:
+Edit `bot.py` and change:
 ```python
 app.run(debug=True, host='0.0.0.0', port=5001)
 ```
@@ -171,7 +171,7 @@ ollama pull all-minilm
 
 ### Using Different Models
 
-Edit the top of `app_cyberpunk.py` or `../app.py`:
+Edit the top of `bot.py` or `../app.py`:
 
 ```python
 MODEL_NAME = "llama2:7b"  # or your preferred model
@@ -180,7 +180,7 @@ EMBEDDING_MODEL = "nomic-embed-text:latest"
 
 ### Changing Flask Port
 
-In `app_cyberpunk.py`, line ~155:
+In `bot.py`, line ~155:
 ```python
 app.run(debug=True, host='0.0.0.0', port=5000)  # Change 5000
 ```
